@@ -9,7 +9,7 @@ from flask_socketio import SocketIO, join_room, leave_room, emit
 
 # --- APP CONFIGURATION ---
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'a-very-secret-key-that-you-should-change'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 # --- THE ONLY CHANGE IS ON THIS NEXT LINE ---
 # We are now creating the database in the main project folder.
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///projectmate.db'
